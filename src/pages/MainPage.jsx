@@ -5,9 +5,9 @@ const MainPage = () => {
         <span>유민몰</span>
         <input></input>
         <button>🔍</button>
-        <a>로그인|</a>
+        {/*<a>로그인|</a>
         <a>회원가입|</a>
-        <a>마이페이지</a>
+  <a>마이페이지</a>*/}
       </header>
       <aside>
         {/*<a href="http://localhost:3000/">가전제품</a>
