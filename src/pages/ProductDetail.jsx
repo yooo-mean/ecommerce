@@ -5,6 +5,7 @@ const ProductDetail = () => {
       <span>유민몰</span>
       <span>정유민 님</span>
       <span>포인트 : 130000</span>
+      <a href="http://localhost:3000/ecommerce/">🏠</a>
     </header>
     <section>
       <span>최근 구매 상품</span>

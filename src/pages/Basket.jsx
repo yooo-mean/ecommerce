@@ -3,6 +3,7 @@ const Basket = () => {
   <>
   <header>
     <span>결제 페이지</span>
+    <a href="http://localhost:3000/ecommerce/">🏠</a>
   </header>
   <section>
     <span>구입 상품 : intel i9-12900ks</span>
