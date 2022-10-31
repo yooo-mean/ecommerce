@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Navigation = () => {
   return(
     <>
-      <NavigationStyled>코멘토 쇼핑</NavigationStyled>
+      <NavigationStyled>유민몰</NavigationStyled>
       <GrayLine />
     </>
   )
