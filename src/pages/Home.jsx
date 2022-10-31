@@ -5,11 +5,8 @@ import ProductCard from '../components/ProductCard';
 import styled from 'styled-components';
 import {mockTheme1Products, mockTheme2Products} from "../data/mockData"
 import { useState, useEffect } from 'react';
-import {getDoc, addDoc, updateDoc, deleteDoc, deleteField} from "../apis/useDB"
 
 const Home = () => {
-  getDoc('board', 'Fy7wjB6oMtQz1rgb6QeB');
-
   // 목데이터의 1번테마를 불러올건지 2번테마를 불러올건지 결정하는 state
   // state to choose reading which theme from mockData
   const [products, setProducts] = useState();
@@ -43,6 +40,8 @@ const Home = () => {
         Send property to onClickThemeButton if theme button is clicked */}
     <div>
       <Navigation />
+      <MyPageBtn
+      onClick={() => navigate(`basket`)}>마이페이지</MyPageBtn>
       <ThemeSection>
         <ThemeButton 
           themeName={"#따순 머그컵"} 
@@ -103,5 +102,21 @@ const GrayLine = styled.div`
   background: #EEEEEE;
   bottom: 3px;
 `;
+
+const MyPageBtn = styled.div`
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+
+  color: #FFFFFF;
+
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 26px;
+
+  padding: 20px 40px;
+  margin: 8px 100px;
+`
 
 export default Home;

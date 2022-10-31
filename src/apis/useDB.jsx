@@ -4,7 +4,7 @@ const getDoc = async (colId, docId) => {
   try {
     const doc = await db.collection(colId).doc(docId).get()
     if(doc.exists) {
-      console.log(doc.data());
+      return(doc.data());
     } else {
       console.log('해당 document 없음!');
     }
