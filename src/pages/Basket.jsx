@@ -1,6 +1,6 @@
 import Navigation from '../components/Navigation';
 import styled from 'styled-components';
-import {getDoc, addDoc, updateDoc, deleteDoc, deleteField} from "../apis/useDB"
+import { getDoc } from "../apis/useDB"
 
 var name, number, isok;
 
