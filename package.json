@@ -2,7 +2,7 @@
   "name": "secondary_shop",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://codesocrates.github.io/secondary_shop/",
+  "homepage": "https://codesocrates.github.io/ecommerce/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

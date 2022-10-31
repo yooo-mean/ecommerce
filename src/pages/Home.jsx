@@ -4,13 +4,23 @@ import ThemeButton from '../components/ThemeButton';
 import ProductCard from '../components/ProductCard';
 import styled from 'styled-components';
 import {mockTheme1Products, mockTheme2Products} from "../data/mockData"
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Home = () => {
   // 목데이터의 1번테마를 불러올건지 2번테마를 불러올건지 결정하는 state
   // state to choose reading which theme from mockData
   const [products, setProducts] = useState();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    //useEffect() : 조건에 의해서 수행되는 함수
+    //useEffect() : function to action by case
+    //페이지 접속시 상품 리스트를 그려주는 함수
+    //function to print item list when user connect the page
+    setTimeout(() => {
+      setProducts(mockTheme1Products);
+    }, 1);
+  }, []);
 
   // 특정 테마버튼이 클릭되면 어떤 테마의 목데이터의 값을 불러올 지 스테이트를 설정해주는 함수
   // function to set state if themeButton is clicked
@@ -64,7 +74,7 @@ const Home = () => {
           />
       ))
     ) : (
-      <div>테마를 선택해주세요</div>
+      <div />
     )}
 
     </div>
