@@ -3,6 +3,7 @@ import './App.css';
 import Home from './pages/Home';
 import ProductDetail from './pages/ProductDetail';
 import Basket from './pages/Basket';
+import BucketBox from './pages/BucketBox';
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/product/:productId" element={<ProductDetail />} />
         <Route path="/basket" element={<Basket />} />
+        <Route path="/bucketBox" element={<BucketBox />} />
+
       </Routes>
     </BrowserRouter>
   );
