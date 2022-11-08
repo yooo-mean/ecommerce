@@ -40,7 +40,6 @@ const ProductDetail = () => {
   
   return(
     <ProductDetailStyled>
-      <Navigation />
 
       {product && (
         <>

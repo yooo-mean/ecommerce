@@ -15,6 +15,7 @@ const ProductCard = ({name, description, thumbnail, onClick}) => {
 
 const ProductCardStyled = styled.div`
   padding: 40px 24px 0px;
+  width: 300px;
 `;
 
 const ImgStyled = styled.img`
