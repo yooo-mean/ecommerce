@@ -38,25 +38,21 @@ const Home = () => {
 
     {/* 따순 머그컵 테마버튼 클릭 시 머그 값을 함수로 보냄
         Send property to onClickThemeButton if theme button is clicked */}
-    <div>
       <Navigation />
-      <MyPageBtn
-      onClick={() => navigate(`basket`)}>마이페이지</MyPageBtn>
-      <ThemeSection>
-        <ThemeButton 
-          themeName={"#따순 머그컵"} 
-          onClick={() => onClickThemeButton("mug")}
-        />
-        <ThemeButton 
-          themeName={"#여름 더워요"} 
-          onClick={() => onClickThemeButton("summer")}
-        />
-      </ThemeSection>
-      <GrayLine />
-    </div>
+      <ContentBox>
+        <ThemeSection>
+          <ThemeButton 
+            themeName={"#따순 머그컵"} 
+            onClick={() => onClickThemeButton("mug")}
+          />
+          <ThemeButton 
+            themeName={"#여름 더워요"} 
+            onClick={() => onClickThemeButton("summer")}
+          />
+        </ThemeSection>
 
-    <div>
-      {/* Product Card 
+        <ProductSection>
+          {/* Product Card 
           mockData list를 화면에 노출시키는 구문
           JS의 map() 문법
           목데이타의 값을 map() 문법을 통해 추출하여 ProductCard 컴포넌트로 전달
@@ -65,21 +61,22 @@ const Home = () => {
           if state is undefined, print div tag.
           */}
 
-      {products ? (
-        products.map((product) => (
-          <ProductCard 
-            onClick={() => navigate(`product/${product.id}`)}
-            key={product.id}
-            name={product.name}
-            description={product.description}
-            thumbnail={product.thumbnail}
-          />
-      ))
-    ) : (
-      <div />
-    )}
+          {products ? (
+            products.map((product) => (
+              <ProductCard 
+                onClick={() => navigate(`product/${product.id}`)}
+                key={product.id}
+                name={product.name}
+                description={product.description}
+                thumbnail={product.thumbnail}
+              />
+          ))
+        ) : (
+          <div />
+        )}
 
-    </div>
+      </ProductSection>
+    </ContentBox>
 
   </HomeStyled>
   );
@@ -88,35 +85,26 @@ const Home = () => {
 const HomeStyled = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 `;
 
 const ThemeSection = styled.div`
   display:flex;
-  gap:12px;
-  padding: 43px 24px 40px;
+  flex-direction : column;
+  width: 200px;
+  margin-top: 40px;
 `;
 
-const GrayLine = styled.div`
-  height: 8px;
-  background: #EEEEEE;
-  bottom: 3px;
-`;
-
-const MyPageBtn = styled.div`
+const ProductSection = styled.div`
   display: flex;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
 
-  color: #FFFFFF;
-
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 26px;
-
-  padding: 20px 40px;
-  margin: 8px 100px;
-`
+const ContentBox = styled.div`
+  display: flex;
+  width: 1000px;
+`;
 
 export default Home;

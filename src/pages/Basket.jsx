@@ -15,7 +15,6 @@ const Basket = () => {
 
   return(
     <MPStyled>
-      <Navigation />
       <MP>마이페이지</MP>
       <Title>이름</Title>
       <Result>{name}</Result>
