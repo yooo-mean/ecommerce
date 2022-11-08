@@ -104,7 +104,8 @@ const ProductSection = styled.div`
 
 const ContentBox = styled.div`
   display: flex;
-  width: 1000px;
+  justify-content: center;
+  width: 1500px;
 `;
 
 export default Home;
