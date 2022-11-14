@@ -42,11 +42,11 @@ const Home = () => {
       <ContentBox>
         <ThemeSection>
           <ThemeButton 
-            themeName={"#따순 머그컵"} 
+            themeName={"겨울 용품"} 
             onClick={() => onClickThemeButton("mug")}
           />
           <ThemeButton 
-            themeName={"#여름 더워요"} 
+            themeName={"여름 용품"} 
             onClick={() => onClickThemeButton("summer")}
           />
         </ThemeSection>
