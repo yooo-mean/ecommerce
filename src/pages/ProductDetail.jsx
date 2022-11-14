@@ -39,41 +39,50 @@ const ProductDetail = () => {
     }
   
   return(
-    <ProductDetailStyled>
+    <>
+    <NavSection><Navigation /></NavSection>
+      <ProductDetailStyled>
+        <ProductStyled>
+          {product && (
+            <>
+              <DetailImgStyled src={product.thumbnail}/>
+              <DetailNameStyled>{product.name}</DetailNameStyled>
+              <DetailPriceStyled>{product.price}</DetailPriceStyled>
+            </>
+          )}
+        </ProductStyled>
 
-      {product && (
-        <>
-          <DetailImgStyled src={product.thumbnail}/>
-          <DetailNameStyled>{product.name}</DetailNameStyled>
-          <DetailPriceStyled>{product.price}</DetailPriceStyled>
-        </>
-      )}
-      <GrayLine />
-      
-      <BtnBox>
-        <DetailBtn onClick={() => {
-          onClickDetailButton("detail");
-        }}>상품 상세</DetailBtn>
-        <DetailBtn onClick={() => {
-          onClickDetailButton("review");
-        }}>상품 후기</DetailBtn>
-      </BtnBox>
+        <BtnSection>
+          <BtnBox>
+            <DetailBtn onClick={() => {
+              onClickDetailButton("detail");
+            }}>상품 상세</DetailBtn>
+            <DetailBtn onClick={() => {
+              onClickDetailButton("review");
+            }}>상품 후기</DetailBtn>
+          </BtnBox>
 
-      <GrayLine />
+          <GrayLine />
 
-      {btnDetail === "detail" ? (
-        <img 
-        src="https://raw.githubusercontent.com/congchu/coment-shop-server/master/assets/images/product1.jpg" 
-        alt="제품 상세 정보"
-        width="400" />
-      ) : (
-        <div>리뷰를 위한 페이지 입니다.</div>
-      )}
+          {btnDetail === "detail" ? (
+            <img 
+            src="https://raw.githubusercontent.com/congchu/coment-shop-server/master/assets/images/product1.jpg" 
+            alt="제품 상세 정보"
+            width="400" />
+          ) : (
+            <div>리뷰를 위한 페이지 입니다.</div>
+          )}
 
-      <AddBucketBox onClick={onClickAddBucketBox}>장바구니에 담기</AddBucketBox>
-    </ProductDetailStyled>
+          <AddBucketBox onClick={onClickAddBucketBox}>장바구니에 담기</AddBucketBox>
+        </BtnSection>
+      </ProductDetailStyled>
+    </>
   );
 };
+
+const NavSection = styled.div`
+  display: flex;
+`
 
 const AddBucketBox = styled.button`
   width: 400px;
@@ -93,8 +102,23 @@ const AddBucketBox = styled.button`
 
 const ProductDetailStyled = styled.div`
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+
+const ProductStyled = styled.div`
+  display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 30px;
+`;
+
+const BtnSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 20px;
 `;
 
 const DetailImgStyled = styled.img`
@@ -104,7 +128,7 @@ const DetailImgStyled = styled.img`
 `;
 
 const DetailNameStyled = styled.div`
-  padding: 24px 220px 8px 0px;
+  padding-top: 24px;
   font-weight: 700;
   font-size: 20px;
   line-height: 26px;
@@ -121,7 +145,7 @@ const DetailPriceStyled = styled.div`
 
   color: rgba(0, 0, 0, 0.86);
 
-  padding: 0px 305px 23px 0px;
+  padding-top: 5px;
 `;
 
 const GrayLine = styled.div`
