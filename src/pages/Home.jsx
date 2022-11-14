@@ -92,8 +92,10 @@ const HomeStyled = styled.div`
 const ThemeSection = styled.div`
   display:flex;
   flex-direction : column;
-  width: 200px;
+  width: 310px;
+  padding-right: 5px;
   margin-top: 40px;
+  //margin-right: 50px;
 `;
 
 const ProductSection = styled.div`
@@ -106,6 +108,9 @@ const ContentBox = styled.div`
   display: flex;
   justify-content: center;
   width: 1500px;
+  margin-left: 260px;
+  margin-right: 0px;
+  padding-right: 0px;
 `;
 
 export default Home;

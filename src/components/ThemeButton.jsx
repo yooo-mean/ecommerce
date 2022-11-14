@@ -10,11 +10,11 @@ const ThemeButtonStyled = styled.div`
 
   color: #FFFFFF;
 
-  font-weight: 700;
+  font-weight: 600;
   font-size: 20px;
   line-height: 26px;
 
-  padding: 12px 16px;
+  padding: 12px 24px;
 `;
 
 export default ThemeButton;
