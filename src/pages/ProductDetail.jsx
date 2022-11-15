@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Navigation from '../components/Navigation'
 import { useNavigate } from 'react-router-dom';
 import * as storage from '../utils/storage';
+import ProductCard from '../components/ProductCard';
 
 const ProductDetail = () => {
   let {productId} = useParams(); // productId를 받아오는 로직(logic to receive parameter productId)
@@ -47,7 +48,7 @@ const ProductDetail = () => {
             <>
               <DetailImgStyled src={product.thumbnail}/>
               <DetailNameStyled>{product.name}</DetailNameStyled>
-              <DetailPriceStyled>{product.price}</DetailPriceStyled>
+              <DetailPriceStyled>{product.price} 원</DetailPriceStyled>
             </>
           )}
         </ProductStyled>
@@ -65,10 +66,13 @@ const ProductDetail = () => {
           <GrayLine />
 
           {btnDetail === "detail" ? (
-            <img 
-            src="https://raw.githubusercontent.com/congchu/coment-shop-server/master/assets/images/product1.jpg" 
-            alt="제품 상세 정보"
-            width="400" />
+              <ProductCard 
+              onClick={() => navigate(`product/${product.id}`)}
+              key={product.id}
+              name={product.name}
+              description={product.description}
+              thumbnail={product.thumbnail}
+            />
           ) : (
             <div>리뷰를 위한 페이지 입니다.</div>
           )}
@@ -98,6 +102,9 @@ const AddBucketBox = styled.button`
   line-height: 21px;
 
   background: #24DBAF;
+  
+  margin-left: 50px;
+  margin-top: 30px;
 `;
 
 const ProductDetailStyled = styled.div`

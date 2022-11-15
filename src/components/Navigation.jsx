@@ -25,7 +25,7 @@ const LogoStyled = styled.div`
   font-weight: 700;
   font-size: 70px;
   line-height: 26px;
-  padding-left: 35px;
+  padding-left: 40px;
 `;
 const NavigationStyled = styled.div`
   padding-top: 30px;
@@ -39,7 +39,7 @@ const NavigationStyled = styled.div`
 `;
 const SearchBox = styled.input`
   width: 50%;
-  margin-left: 20px;
+  margin-left: 15px;
   height:35px;
   border-right: none;
 `;
