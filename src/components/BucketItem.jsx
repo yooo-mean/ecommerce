@@ -9,7 +9,7 @@ const BucketItem = ({ thumbnail, name, price, onClickRemoveButton }) => {
             <ProductImage style={{ backgroundImage: `url(${thumbnail})` }} />
             <ColumnLayout>
               <ProductName>{name}</ProductName>
-              <div>{price}</div>
+              <div>{price}원</div>
             </ColumnLayout>
           </RowLayout>
           <CloseButton onClick={onClickRemoveButton}>X</CloseButton>
@@ -58,4 +58,4 @@ const GrayLine = styled.div`
   height:1px;
   width:100%;
   background: #eeeeee;
-`
+`;
