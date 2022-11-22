@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import ProductDetail from './pages/ProductDetail';
 import Basket from './pages/Basket';
 import BucketBox from './pages/BucketBox';
+import Payment from './pages/Payment';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <Route path="/product/:productId" element={<ProductDetail />} />
         <Route path="/basket" element={<Basket />} />
         <Route path="/bucketBox" element={<BucketBox />} />
-
+        <Route path="/payment" element={<Payment />} />
       </Routes>
     </BrowserRouter>
   );

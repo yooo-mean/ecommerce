@@ -29,8 +29,9 @@ const BasketItemStyled = styled.div`
 `;
 const RowLayout = styled.div`
   display: flex;
-  justify-content: space-between;
-  gap: 20px;
+  flex-direction: row;
+  gap:15px;
+  width: 500px;
 `;
 const ColumnLayout = styled.div`
   display: flex;

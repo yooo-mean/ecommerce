@@ -43,20 +43,39 @@ const Basket = () => {
     isok = object.sex;
   })
 
+  const getPrice = () => {
+    const items = storage.getBucketItems();
+    let price;
+    items.map((item) => {
+      price += item.price;
+    })
+    return price;
+  }
+
+  let price = getPrice();
+
+  const onClickPayButton = () => {
+    navigate(`/payment`)
+  }
+
   return(
     <LayoutStyled>
+      <WidthStyled>
       <SideStyled>
         <Logo
         onClick={()=>{navigate(`/`)}}>유민몰</Logo>
         <UserInfo>정유민 님</UserInfo>
         <UserInfo>포인트 : 13928</UserInfo>
 
-        <CheckRecord
-        onClick={() => {onClickRecord("record")}}>구매내역</CheckRecord>
-        <CheckRecord
-        onClick={() => {onClickRecord("bucket")}}>장바구니</CheckRecord>
+        <CheckSection>
+          <CheckRecord
+          onClick={() => {onClickRecord("record")}}>구매내역</CheckRecord>
+          <CheckRecord
+          onClick={() => {onClickRecord("bucket")}}>장바구니</CheckRecord>
+        </CheckSection>
       </SideStyled>
 
+      <ItemStyled>
       {record === "record" ? (
         <div>구매 이력 페이집니다.</div>
     ) : (
@@ -71,12 +90,73 @@ const Basket = () => {
           />
       ))
     )}
+    </ItemStyled>
 
-    <div>상품 금액 : ({bucketItemCount})개</div>
+    <PriceSortStyled>
+      <PriceStyled>상품 개수 : ({bucketItemCount})개</PriceStyled>
+      <PriceStyled>배송비 : {2500 * bucketItemCount}원</PriceStyled>
+      <PriceStyled>총 주문금액 : ({price})원</PriceStyled>
+      <PayButton
+      onClick={()=>onClickPayButton()}>결제하기</PayButton>
+    </PriceSortStyled>
+    </WidthStyled>
     </LayoutStyled>
   );
 };
 
+const CheckSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+`
+const PayButton = styled.button`
+  width: 155px;
+  height: 70px;
+  //position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 21px;
+  
+  margin-top: 50px;
+
+  background: #24DBAF;
+`;
+const PriceSortStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  background-color: #eeeeee;
+  padding: 15px;
+  border-radius: 15px;
+  margin-top: 50px;
+`;
+const PriceStyled = styled.div`
+font-weight: 400;
+font-size: 16px;
+line-height: 21px;
+/* identical to box height, or 131% */
+
+letter-spacing: -0.01em;
+
+/* Gray_02 */
+
+color: #616161;
+`;
+const WidthStyled = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap:130px;
+`;
+const ItemStyled = styled.div`
+  //display: flex;
+  margin-top: 30px;
+`;
 const LayoutStyled = styled.div`
   display: flex;
   flex-direction: column;
@@ -84,8 +164,8 @@ const LayoutStyled = styled.div`
 const SideStyled = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 50px;
-  margin-top: 50px;
+  margin-left: 60px;
+  margin-top: 70px;
 `;
 const Logo = styled.div`
   font-weight: 700;
@@ -114,7 +194,9 @@ const CheckRecord = styled.button`
 
   width: 200px;
   padding: 20px 0px;
-  margin-top: 50px;
+  margin-bottom: 5px;
+  
+  border: none;
 `
 
 export default Basket;

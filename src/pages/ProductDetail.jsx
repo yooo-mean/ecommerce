@@ -67,14 +67,14 @@ const ProductDetail = () => {
 
           {btnDetail === "detail" ? (
               <ProductCard 
-              onClick={() => navigate(`product/${product.id}`)}
+              onClick={() => navigate(`/product/${product.id}`)}
               key={product.id}
               name={product.name}
               description={product.description}
               thumbnail={product.thumbnail}
             />
           ) : (
-            <div>리뷰를 위한 페이지 입니다.</div>
+            <ReviewPage>리뷰를 위한 페이지 입니다.</ReviewPage>
           )}
 
           <AddBucketBox onClick={onClickAddBucketBox}>장바구니에 담기</AddBucketBox>
@@ -104,7 +104,11 @@ const AddBucketBox = styled.button`
   background: #24DBAF;
   
   margin-left: 50px;
-  margin-top: 30px;
+  margin-top: 20px;
+`;
+
+const ReviewPage = styled.div`
+  height: 390px;
 `;
 
 const ProductDetailStyled = styled.div`
@@ -118,14 +122,21 @@ const ProductStyled = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 25px;
 `;
 
 const BtnSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 20px;
+  margin-left: 30px;
+  margin-top: 30px;
+`;
+
+const BtnBox = styled.div`
+  display:flex;
+  flex-direction: row;
+  margin-left: 10px;
 `;
 
 const DetailImgStyled = styled.img`
@@ -159,11 +170,7 @@ const GrayLine = styled.div`
   width: 390px;
   height: 1px;
   background: #EEEEEE;
-`;
-
-const BtnBox = styled.div`
-  display:flex;
-  flex-direction: row;
+  margin-left: 35px;
 `;
 
 const DetailBtn = styled.button`
