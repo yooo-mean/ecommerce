@@ -36,7 +36,7 @@ const ProductDetail = () => {
     //장바구니에 아이템을 추가한다.
     storage.addBucket(product);
     //장바구니 페이지로 이동한다
-    navigate("/basket");
+    navigate("/mypage");
     }
   
   return(

@@ -16,7 +16,7 @@ const Navigation = () => {
         <ToSignUp
         onClick={()=>{navigate(`/`)}}>회원가입</ToSignUp>
         <ToMyPage
-        onClick={()=>{navigate(`basket`)}}>마이페이지</ToMyPage>
+        onClick={()=>{navigate(`/mypage`)}}>마이페이지</ToMyPage>
       </NavigationStyled>
     </>
   )

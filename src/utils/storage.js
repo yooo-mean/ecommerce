@@ -30,7 +30,4 @@ export const removeBucketItem = (productId) => {
   localStorage.removeItem(BUCKET);
   //다시 상품 리스트 저장하기.
   localStorage.setItem(BUCKET, JSON.stringify(items));
-
-  console.log("----------4--------");
-  console.log(getBucketItems());
 }

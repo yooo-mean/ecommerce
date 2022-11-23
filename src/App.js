@@ -2,9 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home';
 import ProductDetail from './pages/ProductDetail';
-import Basket from './pages/Basket';
-import BucketBox from './pages/BucketBox';
-import Payment from './pages/Payment';
+import MyPage from './pages/MyPage';
 
 function App() {
   return (
@@ -14,9 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product/:productId" element={<ProductDetail />} />
-        <Route path="/basket" element={<Basket />} />
-        <Route path="/bucketBox" element={<BucketBox />} />
-        <Route path="/payment" element={<Payment />} />
+        <Route path="/mypage" element={<MyPage />} />
       </Routes>
     </BrowserRouter>
   );

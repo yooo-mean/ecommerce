@@ -1,19 +1,15 @@
-import Navigation from '../components/Navigation';
 import styled from 'styled-components';
-import { getDoc } from "../apis/useDB"
 import { useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import * as storage from '../utils/storage';
 import BucketItem from '../components/BucketItem';
 import { useEffect } from 'react';
 
-var name, number, isok;
-
-const Basket = () => {
-  const [record, setRecord] = useState();
-  const [bucketItems, setBucketItems] = useState();
-  const navigate = useNavigate();
-  const [bucketItemCount, setBucketItemCount] = useState();
+const MyPage = () => {
+  const [record, setRecord] = useState(); //장바구니 혹은 구매내역을 보여주기 위한 스테이트
+  const [bucketItems, setBucketItems] = useState(); //장바구니 아이템 스테이트
+  const navigate = useNavigate(); //페이지 이동을 위한 네비게이트
+  const [bucketItemCount, setBucketItemCount] = useState(); // 장바구니 상품의 양 스테이트
 
   useEffect(()=>  {
     //1. 장바구니 데이터 가져오기
@@ -36,70 +32,54 @@ const Basket = () => {
     setBucketItemCount(bucketItemCount - 1);
   };
 
-  const data = getDoc('board', 'Fy7wjB6oMtQz1rgb6QeB');
+  /*const data = getDoc('board', 'Fy7wjB6oMtQz1rgb6QeB');
   data.then( (object) => {
     name = object.name;
     number = object.number;
     isok = object.sex;
-  })
-
-  const getPrice = () => {
-    const items = storage.getBucketItems();
-    let price;
-    items.map((item) => {
-      price += item.price;
-    })
-    return price;
-  }
-
-  let price = getPrice();
-
-  const onClickPayButton = () => {
-    navigate(`/payment`)
-  }
+  })*/
 
   return(
     <LayoutStyled>
       <WidthStyled>
-      <SideStyled>
-        <Logo
-        onClick={()=>{navigate(`/`)}}>유민몰</Logo>
-        <UserInfo>정유민 님</UserInfo>
-        <UserInfo>포인트 : 13928</UserInfo>
+        <SideStyled>
+          <Logo
+          onClick={()=>{navigate(`/`)}}>유민몰</Logo>
+          <UserInfo>정유민 님</UserInfo>
+          <UserInfo>포인트 : 13928</UserInfo>
 
-        <CheckSection>
-          <CheckRecord
-          onClick={() => {onClickRecord("record")}}>구매내역</CheckRecord>
-          <CheckRecord
-          onClick={() => {onClickRecord("bucket")}}>장바구니</CheckRecord>
-        </CheckSection>
-      </SideStyled>
+          <CheckSection>
+            <CheckRecord
+            onClick={() => {onClickRecord("record")}}>구매내역</CheckRecord>
+            <CheckRecord
+            onClick={() => {onClickRecord("bucket")}}>장바구니</CheckRecord>
+          </CheckSection>
+        </SideStyled>
 
-      <ItemStyled>
-      {record === "record" ? (
-        <div>구매 이력 페이집니다.</div>
-    ) : (
-      bucketItems && 
-        bucketItems.map((item) => (
-          <BucketItem 
-            key={item.id}
-            thumbnail={item.thumbnail}
-            name={item.name}
-            price={item.price}
-            onClickRemoveButton={()=>onClickRemoveButton(item.id)}
-          />
-      ))
-    )}
-    </ItemStyled>
+        <ItemStyled>
+          {record === "record" ? (
+            <div>구매 이력 페이집니다.</div>
+          ) : (
+            bucketItems && 
+              bucketItems.map((item) => (
+                <BucketItem 
+                  key={item.id}
+                  thumbnail={item.thumbnail}
+                  name={item.name}
+                  price={item.price}
+                  onClickRemoveButton={()=>onClickRemoveButton(item.id)}
+                />
+              ))
+          )}
+        </ItemStyled>
 
-    <PriceSortStyled>
-      <PriceStyled>상품 개수 : ({bucketItemCount})개</PriceStyled>
-      <PriceStyled>배송비 : {2500 * bucketItemCount}원</PriceStyled>
-      <PriceStyled>총 주문금액 : ({price})원</PriceStyled>
-      <PayButton
-      onClick={()=>onClickPayButton()}>결제하기</PayButton>
-    </PriceSortStyled>
-    </WidthStyled>
+        <PriceSortStyled>
+          <PriceStyled>상품 개수 : ({bucketItemCount})개</PriceStyled>
+          <PriceStyled>배송비 : {2500 * bucketItemCount}원</PriceStyled>
+          <PriceStyled>총 주문금액 : ()원</PriceStyled>
+          <PayButton>결제하기</PayButton>
+        </PriceSortStyled>
+      </WidthStyled>
     </LayoutStyled>
   );
 };
@@ -199,4 +179,4 @@ const CheckRecord = styled.button`
   border: none;
 `
 
-export default Basket;
+export default MyPage;

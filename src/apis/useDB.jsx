@@ -1,3 +1,6 @@
+/*
+DB 를 이용하려고 했던 api
+그러나 잠정적으로 사용 안함.
 import { db, firebase } from '../firebase';
 
 const getDoc = async (colId, docId) => {
@@ -52,4 +55,4 @@ const deleteField = async (colId, docId, fieldName) => {
   }
 }
 
-export {getDoc, addDoc, updateDoc, deleteDoc, deleteField}
+export {getDoc, addDoc, updateDoc, deleteDoc, deleteField}*/
