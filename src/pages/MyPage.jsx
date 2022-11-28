@@ -100,7 +100,7 @@ const MyPage = () => {
           <PriceStyled></PriceStyled>
           <PriceStyled>포인트 사용</PriceStyled>
           <PriceStyled><Input />/{point}</PriceStyled>
-          <PayButton>결제하기</PayButton>
+          <PayButton onClick={()=>setRecord("record")}>결제하기</PayButton>
         </PriceSortStyled>
       </WidthStyled>
     </LayoutStyled>

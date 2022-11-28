@@ -3,7 +3,7 @@ import Navigation from '../components/Navigation';
 import ThemeButton from '../components/ThemeButton';
 import ProductCard from '../components/ProductCard';
 import styled from 'styled-components';
-import {mockTheme1Products, mockTheme2Products} from "../data/mockData"
+import {mockTheme1Products, mockTheme2Products, mockTheme3Products, mockTheme4Products, mockTheme5Products} from "../data/mockData"
 import { useState, useEffect } from 'react';
 
 const Home = () => {
@@ -25,10 +25,19 @@ const Home = () => {
   // 특정 테마버튼이 클릭되면 어떤 테마의 목데이터의 값을 불러올 지 스테이트를 설정해주는 함수
   // function to set state if themeButton is clicked
   const onClickThemeButton = (themeId) => {
-    if (themeId === "mug") {
+    if (themeId === "homeapp") {
       setProducts(mockTheme1Products);
-    } else if (themeId === "summer") {
+    } else if (themeId === "electro") {
       setProducts(mockTheme2Products);
+    }
+    else if (themeId === "furniture") {
+      setProducts(mockTheme3Products);
+    }
+    else if (themeId === "fashion") {
+      setProducts(mockTheme4Products);
+    }
+    else if (themeId === "food") {
+      setProducts(mockTheme5Products);
     }
   };
 
@@ -42,12 +51,24 @@ const Home = () => {
       <ContentBox>
         <ThemeSection>
           <ThemeButton 
-            themeName={"겨울 용품"} 
-            onClick={() => onClickThemeButton("mug")}
+            themeName={"가전제품"} 
+            onClick={() => onClickThemeButton("homeapp")}
           />
           <ThemeButton 
-            themeName={"여름 용품"} 
-            onClick={() => onClickThemeButton("summer")}
+            themeName={"전자기기"} 
+            onClick={() => onClickThemeButton("electro")}
+          />
+          <ThemeButton 
+            themeName={"가구"} 
+            onClick={() => onClickThemeButton("furniture")}
+          />
+          <ThemeButton 
+            themeName={"패션"} 
+            onClick={() => onClickThemeButton("fashion")}
+          />
+          <ThemeButton 
+            themeName={"식품"} 
+            onClick={() => onClickThemeButton("food")}
           />
         </ThemeSection>
 
