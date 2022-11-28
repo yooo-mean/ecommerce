@@ -57,6 +57,6 @@ const ProductName = styled.div`
 `;
 const GrayLine = styled.div`
   height:1px;
-  width:100%;
+  width:550px;
   background: #eeeeee;
 `;

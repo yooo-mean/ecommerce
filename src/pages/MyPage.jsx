@@ -10,6 +10,8 @@ const MyPage = () => {
   const [bucketItems, setBucketItems] = useState(); //장바구니 아이템 스테이트
   const navigate = useNavigate(); //페이지 이동을 위한 네비게이트
   const [bucketItemCount, setBucketItemCount] = useState(); // 장바구니 상품의 양 스테이트
+  var sumItem;
+  var point = 10000;
 
   useEffect(()=>  {
     //1. 장바구니 데이터 가져오기
@@ -32,6 +34,17 @@ const MyPage = () => {
     setBucketItemCount(bucketItemCount - 1);
   };
 
+  const onChangePoint = () => {
+
+  }
+
+  sumItem = 0;
+  bucketItems && 
+    bucketItems.map((item) => (
+      sumItem += item.price
+    ))
+  sumItem += (2500 * bucketItemCount);
+
   /*const data = getDoc('board', 'Fy7wjB6oMtQz1rgb6QeB');
   data.then( (object) => {
     name = object.name;
@@ -46,7 +59,7 @@ const MyPage = () => {
           <Logo
           onClick={()=>{navigate(`/`)}}>유민몰</Logo>
           <UserInfo>정유민 님</UserInfo>
-          <UserInfo>포인트 : 13928</UserInfo>
+          <UserInfo>포인트 : {point}</UserInfo>
 
           <CheckSection>
             <CheckRecord
@@ -58,7 +71,14 @@ const MyPage = () => {
 
         <ItemStyled>
           {record === "record" ? (
-            <div>구매 이력 페이집니다.</div>
+            <>
+              <GrayLiner />
+              <BuyHistory>상품 개수 : ({bucketItemCount})개</BuyHistory>
+              <BuyHistory>배송비 : {2500 * bucketItemCount}원</BuyHistory>
+              <BuyHistory>총 주문금액 : ({sumItem})원</BuyHistory>
+              <BuyHistory>포인트 사용 : ()원</BuyHistory>
+              <GrayLiner />
+            </>
           ) : (
             bucketItems && 
               bucketItems.map((item) => (
@@ -76,7 +96,10 @@ const MyPage = () => {
         <PriceSortStyled>
           <PriceStyled>상품 개수 : ({bucketItemCount})개</PriceStyled>
           <PriceStyled>배송비 : {2500 * bucketItemCount}원</PriceStyled>
-          <PriceStyled>총 주문금액 : ()원</PriceStyled>
+          <PriceStyled>총 주문금액 : ({sumItem})원</PriceStyled>
+          <PriceStyled></PriceStyled>
+          <PriceStyled>포인트 사용</PriceStyled>
+          <PriceStyled><Input />/{point}</PriceStyled>
           <PayButton>결제하기</PayButton>
         </PriceSortStyled>
       </WidthStyled>
@@ -84,13 +107,37 @@ const MyPage = () => {
   );
 };
 
+const Input = styled.input`
+  border: none;
+  width: 100px;
+`;
+const GrayLiner = styled.div`
+  height:1px;
+  width:550px;
+  background: #363636;
+`;
+const BuyHistory = styled.div`
+  background-color: #eeeeee;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  /* identical to box height, or 131% */
+
+  letter-spacing: -0.01em;
+
+  /* Gray_02 */
+
+  color: #000000;
+  padding-top: 5px;
+  padding-bottom: 5px;
+`;
 const CheckSection = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 30px;
 `
 const PayButton = styled.button`
-  width: 155px;
+  width: 200px;
   height: 70px;
   //position: absolute;
   left: 0%;
@@ -116,8 +163,8 @@ const PriceSortStyled = styled.div`
   margin-top: 50px;
 `;
 const PriceStyled = styled.div`
-font-weight: 400;
-font-size: 16px;
+font-weight: 500;
+font-size: 18px;
 line-height: 21px;
 /* identical to box height, or 131% */
 
