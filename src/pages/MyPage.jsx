@@ -34,9 +34,9 @@ const MyPage = () => {
     setBucketItemCount(bucketItemCount - 1);
   };
 
-  const onChangePoint = () => {
+  /*const onChangePoint = () => {
 
-  }
+  }*/
 
   sumItem = 0;
   bucketItems && 
